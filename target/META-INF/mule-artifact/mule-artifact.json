@@ -1,0 +1,26 @@
+{
+  "configs": [
+    "git-jenkin-sample.xml"
+  ],
+  "secureProperties": [],
+  "supportedJavaVersions": [],
+  "redeploymentEnabled": true,
+  "name": "com.mycompany:git-jenkin-sample:1.0.0-SNAPSHOT",
+  "minMuleVersion": "4.8.0",
+  "requiredProduct": "MULE_EE",
+  "classLoaderModelLoaderDescriptor": {
+    "id": "mule",
+    "attributes": {
+      "exportedPackages": [],
+      "exportedResources": [
+        "git-jenkin-sample.xml",
+        "log4j2.xml",
+        "myconfig-dev.yaml"
+      ]
+    }
+  },
+  "bundleDescriptorLoader": {
+    "id": "mule",
+    "attributes": {}
+  }
+}
