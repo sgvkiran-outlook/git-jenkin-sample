@@ -1,0 +1,5 @@
+http:
+  port: "8081"
+log:
+  cicd: "Git-Jenkins-Cicd"
+  message:  "This is Git Jenkins Cicd First Application"

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="33be5a35-2b70-4480-ad06-7fb0036e4368" >
+		<http:listener-connection host="0.0.0.0" port="${http.port}" />
+	</http:listener-config>
+	<configuration-properties doc:name="Configuration properties" doc:id="1d610dee-3892-43b9-b4ac-b9c377a022c0" file="myconfig-dev.yaml" />
+	<flow name="git-jenkin-sampleFlow" doc:id="7c212d13-51ba-433d-9678-f768ce59b62d" >
+		<http:listener doc:name="Listener" doc:id="d51d6645-2b3b-462c-b91c-7443d2e42bc1" config-ref="HTTP_Listener_config" path="git-jenkin-sample"/>
+		<ee:transform doc:name="Transform Message" doc:id="9a8f1f4c-43af-4541-ae6b-8a3921e8a33e" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+import p from Mule
+output application/json
+---
+{
+	"cicdType": p('log.cicd'),
+	"message": p('log.message')
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>
