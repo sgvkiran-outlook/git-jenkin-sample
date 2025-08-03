@@ -31,7 +31,7 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-				    <cloudHubDeployment>
+				    <cloudhub2Deployment>
 				      <uri>https://anypoint.mulesoft.com</uri>
 				      <muleVersion>${mule.version}</muleVersion>
 				      <username>${anypoint.username}</username>
@@ -48,7 +48,7 @@
 				      <properties>
 				        <key>value</key>
 				      </properties>
-				    </cloudHubDeployment>
+				    </cloudhub2Deployment>
 			  </configuration>
 			</plugin>
 			
